@@ -18,8 +18,50 @@
             font-family: 'Vazirmatn', sans-serif;
             background-color: #0a0a0a;
             color: #e0e0e0;
-            overflow-x: hidden;
+            overflow: hidden; /* Lock scroll during loading */
             margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Screen Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050505;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader-logo {
+            width: 80px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .loader-ring {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
         }
 
         #canvas-container {
@@ -42,7 +84,7 @@
 
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-20px); /* Increased hover lift */
+            transform: translateY(-20px);
             border-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
@@ -73,7 +115,6 @@
             width: 100%;
         }
 
-        /* Protect Images and Invert Colors */
         .white-logo {
             filter: brightness(0) invert(1);
             pointer-events: none;
@@ -103,7 +144,6 @@
             transform: translateY(30px);
         }
 
-        /* Modal Specific Styles */
         #order-modal {
             display: none;
             opacity: 0;
@@ -127,17 +167,15 @@
             border-radius: 4px;
         }
 
-        /* Slider Spacing for Hover Effects */
         .mySwiper {
-            padding-top: 40px !important; /* Space for hover lift */
-            overflow: visible !important; /* Prevent cutting of lifted cards */
+            padding-top: 40px !important;
+            overflow: visible !important;
         }
         
         .swiper-wrapper {
             overflow: visible !important;
         }
 
-        /* Coming Soon Badge */
         .coming-soon-badge {
             position: absolute;
             top: 20px;
@@ -156,13 +194,18 @@
 </head>
 <body>
 
+    <!-- Loading Screen -->
+    <div id="preloader">
+        <img src="https://bayanbox.ir/download/1390626578137567308/TypeEn2%D8%B52%D8%B3%D8%B4glish.png" alt="لوگو لودینگ" class="loader-logo">
+        <div class="loader-ring"></div>
+    </div>
+
     <!-- 3D Background Container -->
     <div id="canvas-container"></div>
 
     <!-- Order Modal -->
     <div id="order-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
         <div class="modal-glass relative w-full max-w-lg p-10 rounded-[32px] text-center transform scale-90">
-            <!-- Close Button centered on top border -->
             <button onclick="closeModal()" class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-10">
                 <i class="fas fa-times"></i>
             </button>
@@ -215,10 +258,10 @@
             طراح گرافیک و هنرمند دیجیتال؛ متخصص در برندینگ، هویت بصری و طراحی رابط کاربری با رویکردی مینیمال و سه‌بعدی.
         </p>
         <div class="flex space-x-4 space-x-reverse">
-            <a href="#projects" class="glass-card px-8 py-4 flex items-center gap-2 group">
+            <button onclick="scrollToProjects()" class="glass-card px-8 py-4 flex items-center gap-2 group">
                 <span>مشاهده آثار</span>
                 <i class="fas fa-chevron-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-            </a>
+            </button>
         </div>
     </section>
 
@@ -256,7 +299,6 @@
     <section id="projects" class="py-24 px-8 max-w-7xl mx-auto section-enter overflow-hidden">
         <h2 class="text-4xl font-bold mb-16 text-center">پروژه‌های برگزیده</h2>
         
-        <!-- Swiper Container with Top Spacing -->
         <div class="swiper mySwiper pb-12">
             <div class="swiper-wrapper">
                 <div class="swiper-slide px-2">
@@ -299,23 +341,18 @@
             <div class="swiper-pagination"></div>
         </div>
 
-        <!-- Banners stacked vertically -->
         <div class="mt-20 grid grid-cols-1 gap-12 max-w-4xl mx-auto">
-            <!-- Banner 1 -->
             <div class="glass-card overflow-hidden group relative cursor-pointer section-enter">
                 <div class="coming-soon-badge">بزودی...</div>
                 <img src="https://hadialidadi.ir/wp-content/uploads/2025/12/بنر-سایت-مینی-دوره-scaled.png" 
                      alt="مینی دوره" 
                      class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <!-- Banner 2 -->
             <div class="glass-card overflow-hidden group relative cursor-pointer section-enter">
                 <div class="coming-soon-badge">بزودی...</div>
                 <img src="https://hadialidadi.ir/wp-content/uploads/2024/08/بنر-سایت-خودم-1-دوره-فتوشاپ.png" 
                      alt="دوره فتوشاپ" 
                      class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
         </div>
     </section>
@@ -341,6 +378,7 @@
     <script>
         let scene, camera, renderer, particles;
 
+        // Initialize 3D scene but don't start it immediately until preloader is ready
         function init3D() {
             if (typeof THREE === 'undefined') return;
             scene = new THREE.Scene();
@@ -377,6 +415,13 @@
             renderer.render(scene, camera);
         }
 
+        function scrollToProjects() {
+            const element = document.getElementById('projects');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         function openModal() {
             const modal = document.getElementById('order-modal');
             const content = modal.querySelector('.modal-glass');
@@ -400,24 +445,9 @@
             if (event.target == modal) closeModal();
         }
 
-        window.addEventListener('mousemove', (e) => {
-            if (!particles || typeof gsap === 'undefined') return;
-            const mouseX = (e.clientX / window.innerWidth) - 0.5;
-            const mouseY = (e.clientY / window.innerHeight) - 0.5;
-            gsap.to(particles.rotation, { y: mouseX * 0.3, x: -mouseY * 0.3, duration: 2, ease: "power2.out" });
-        });
-
         function initAnimations() {
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
             gsap.registerPlugin(ScrollTrigger);
-
-            gsap.from(".hero-title-img img", {
-                duration: 2,
-                y: 60,
-                opacity: 0,
-                delay: 0.5,
-                ease: "power3.out"
-            });
 
             gsap.utils.toArray(".section-enter").forEach(section => {
                 gsap.to(section, {
@@ -429,10 +459,7 @@
             new Swiper(".mySwiper", {
                 slidesPerView: 1,
                 spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
+                pagination: { el: ".swiper-pagination", clickable: true },
                 breakpoints: {
                     640: { slidesPerView: 2 },
                     1024: { slidesPerView: 3 },
@@ -442,14 +469,43 @@
             });
         }
 
+        // PRELOADER LOGIC: Runs when all assets are fully loaded
+        window.onload = function() {
+            const preloader = document.getElementById('preloader');
+            
+            // Timeline for smooth exiting animation
+            const tl = gsap.timeline();
+
+            tl.to(".loader-ring", { opacity: 0, duration: 0.3 })
+              .to(".loader-logo", { scale: 1.2, opacity: 0, duration: 0.5, ease: "power2.in" })
+              .to(preloader, { 
+                  yPercent: -100, 
+                  duration: 1, 
+                  ease: "expo.inOut" 
+              })
+              .from(".hero-title-img img", {
+                  duration: 1.5,
+                  y: 100,
+                  opacity: 0,
+                  clearProps: "all",
+                  ease: "power4.out"
+              }, "-=0.5")
+              .set("body", { overflow: "auto" }); // Re-enable scroll after animation
+
+            init3D();
+            initAnimations();
+        };
+
+        window.addEventListener('mousemove', (e) => {
+            if (!particles || typeof gsap === 'undefined') return;
+            const mouseX = (e.clientX / window.innerWidth) - 0.5;
+            const mouseY = (e.clientY / window.innerHeight) - 0.5;
+            gsap.to(particles.rotation, { y: mouseX * 0.3, x: -mouseY * 0.3, duration: 2, ease: "power2.out" });
+        });
+
         window.addEventListener('resize', () => {
             if (camera) { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); }
             if (renderer) { renderer.setSize(window.innerWidth, window.innerHeight); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); }
-        });
-
-        window.addEventListener('DOMContentLoaded', () => {
-            init3D();
-            initAnimations();
         });
     </script>
 </body>
