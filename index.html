@@ -93,6 +93,14 @@
         }
         .glass-card:hover { background: var(--glass-hover-bg); transform: translateY(-20px); border-color: var(--glass-hover-border); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
         .glass-card.no-lift:hover { transform: translateY(0); box-shadow: none; background-color: var(--glass-hover-bg); border-color: var(--glass-hover-border); }
+        
+        /* MODIFIED: Rule to disable hover on contact card */
+        .glass-card.no-hover:hover {
+            background: var(--glass-bg);
+            transform: none;
+            border-color: var(--glass-border);
+            box-shadow: none;
+        }
 
         .text-gradient { background: linear-gradient(90deg, var(--text-gradient-start), var(--text-gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-link { position: relative; transition: color 0.3s; }
@@ -163,6 +171,50 @@
             pointer-events: none;
             transition: opacity 0.5s ease-in-out;
         }
+
+        /* Contact Form Styles */
+        .contact-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px 20px;
+            width: 100%;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .contact-input:focus {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        /* MODIFIED: Light mode optimizations for contact form */
+        body.light-mode .contact-input {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-primary);
+        }
+        body.light-mode .contact-input::placeholder {
+            color: var(--text-muted);
+        }
+        body.light-mode .contact-input:focus {
+            background: rgba(0, 0, 0, 0.06);
+            border-color: var(--text-primary);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        body.light-mode #contact-form label {
+            color: var(--text-secondary);
+        }
+        body.light-mode #contact-submit-btn {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        body.light-mode #contact-submit-btn:hover {
+            background-color: var(--text-secondary);
+        }
+
     </style>
 </head>
 <body>
@@ -305,8 +357,36 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-24 px-8 max-w-4xl mx-auto section-enter">
+        <h2 class="text-4xl font-bold mb-12 text-center text-gradient">ارتباط با من</h2>
+        <!-- MODIFIED: Added 'no-hover' class to disable hover effects -->
+        <div class="glass-card no-hover p-8 md:p-12">
+            <form id="contact-form" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm text-gray-400 mr-2">نام و نام خانوادگی</label>
+                        <input type="text" class="contact-input" placeholder="نام خود را وارد کنید...">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-gray-400 mr-2">آدرس ایمیل</label>
+                        <input type="email" class="contact-input" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm text-gray-400 mr-2">پیام شما</label>
+                    <textarea rows="5" class="contact-input resize-none" placeholder="چطور می‌توانم به شما کمک کنم؟"></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <!-- MODIFIED: Added id for better styling in light mode -->
+                    <button type="submit" id="contact-submit-btn" class="bg-white text-black px-12 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-all w-full md:w-auto shadow-lg shadow-white/10">ارسال پیام</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact" class="py-16 border-t text-center mt-20" style="border-color: var(--glass-border);">
+    <footer class="py-16 border-t text-center mt-20" style="border-color: var(--glass-border);">
         <h2 class="text-2xl font-bold mb-8">بیایید با هم بسازیم</h2>
         <div class="flex justify-center space-x-8 space-x-reverse mb-10 text-3xl">
             <a href="#" class="transition" style="color: var(--text-muted);"><i class="fab fa-dribbble"></i></a>
@@ -496,6 +576,31 @@
         window.addEventListener('resize', () => {
             if (camera) { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); }
             if (renderer) { renderer.setSize(window.innerWidth, window.innerHeight); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); }
+        });
+
+        // Form Submission logic
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'در حال ارسال...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerText = 'پیام ارسال شد ✓';
+                // Use a class or direct style for success state
+                btn.style.backgroundColor = '#4ade80'; // Green color for success
+                btn.style.color = '#fff';
+
+                e.target.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    // Reset styles by removing them, allowing CSS to take over again
+                    btn.style.backgroundColor = '';
+                    btn.style.color = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
         });
     </script>
 </body>
