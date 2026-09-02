@@ -96,7 +96,7 @@
             filter: blur(80px);
             opacity: 0.42;
             will-change: transform;
-            animation: moveBlobs 12s infinite alternate ease-in-out;
+            animation: moveBlobs 14s infinite alternate ease-in-out;
         }
 
         .blob-1 {
@@ -105,7 +105,7 @@
             background: #2a2c30;
             top: 5%;
             left: 10%;
-            animation-duration: 10s;
+            animation-duration: 12s;
         }
 
         .blob-2 {
@@ -114,7 +114,7 @@
             background: #18191c;
             bottom: -5%;
             right: 10%;
-            animation-duration: 14s;
+            animation-duration: 16s;
             animation-delay: -3s;
         }
 
@@ -124,7 +124,7 @@
             background: #35383d;
             top: 45%;
             left: 35%;
-            animation-duration: 9s;
+            animation-duration: 11s;
             animation-delay: -5s;
         }
 
@@ -175,15 +175,15 @@
         .message-box {
             font-size: clamp(1.35rem, 4.2vw, 2.15rem);
             font-weight: 300;
-            line-height: 1.85;
+            line-height: 1.95;
             letter-spacing: -0.02em;
             color: #ffffff;
             opacity: 0;
-            transform: translate3d(0, 18px, 0);
-            filter: blur(10px);
-            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate3d(0, 22px, 0);
+            filter: blur(14px);
+            transition: opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        filter 1.25s cubic-bezier(0.22, 1, 0.36, 1);
             white-space: pre-line;
             word-break: normal;
             overflow-wrap: break-word;
@@ -207,11 +207,11 @@
             width: 100%;
             max-width: 540px;
             opacity: 0;
-            transform: translate3d(0, 20px, 0);
-            filter: blur(10px);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate3d(0, 30px, 0) scale(0.96);
+            filter: blur(24px);
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 1.5s cubic-bezier(0.16, 1, 0.3, 1);
             background: rgba(18, 19, 23, 0.65);
             border: 1px solid rgba(255, 255, 255, 0.09);
             backdrop-filter: blur(24px);
@@ -222,9 +222,8 @@
         }
 
         .final-container.show {
-            display: block;
             opacity: 1;
-            transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0) scale(1);
             filter: blur(0);
         }
 
@@ -237,7 +236,7 @@
             object-fit: contain;
             filter: brightness(0) invert(1);
             opacity: 0.95;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .brand-logo:hover {
@@ -249,7 +248,7 @@
             font-weight: 400;
             color: #d1d1d6;
             margin-bottom: clamp(20px, 4vw, 28px);
-            line-height: 1.75;
+            line-height: 1.8;
             letter-spacing: -0.01em;
         }
 
@@ -274,7 +273,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #c5c5cb;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .social-link svg {
@@ -352,14 +351,14 @@
 
     <script>
         const messages = [
-            { text: "سلام. بالاخره اومدی.", duration: 3800, isBold: false },
-            { text: "راستش من تو رو خوب می‌شناسم.\nچون خودِ تو هستم؛ فقط از چند قدم جلوتر.", duration: 4800, isBold: false },
-            { text: "الان شاید حس کنی یه چیزی کمه،\nیا یه جایی از مسیر رو اشتباه رفتی.", duration: 4800, isBold: false },
-            { text: "ولی اومدم که بگم هنوز دیر نشده.\nقرار نیست معجزه کنم یا شعار بدم.", duration: 4800, isBold: false },
-            { text: "فقط می‌خوام کنارت باشم\nتا کم‌کم کیفیتت رو ببری بالا.", duration: 4500, isBold: false },
-            { text: "عیارت رو بالاتر ببری،\nبدون اینکه خودت رو گم کنی.", duration: 4500, isBold: false },
-            { text: "من در کنار توام که بتونی کیفیتتو بالاتر ببری و عیارتو بالاتر ببری.", duration: 5200, isBold: true },
-            { text: "حالا اگه موافقی،\nاز یه قدم کوچیک شروع کنیم.", duration: 4200, isBold: false }
+            { text: "سلام. بالاخره اومدی.", duration: 4200, isBold: false },
+            { text: "راستش من تو رو خوب می‌شناسم.\nچون خودِ تو هستم؛ فقط از چند قدم جلوتر.", duration: 5200, isBold: false },
+            { text: "الان شاید حس کنی یه چیزی کمه،\nیا یه جایی از مسیر رو اشتباه رفتی.", duration: 5200, isBold: false },
+            { text: "ولی اومدم که بگم هنوز دیر نشده.\nقرار نیست معجزه کنم یا شعار بدم.", duration: 5200, isBold: false },
+            { text: "فقط می‌خوام کنارت باشم\nتا کم‌کم کیفیتت رو ببری بالا.", duration: 4800, isBold: false },
+            { text: "عیارت رو بالاتر ببری،\nبدون اینکه خودت رو گم کنی.", duration: 4800, isBold: false },
+            { text: "من در کنار توام که بتونی کیفیتتو بالاتر ببری و عیارتو بالاتر ببری.", duration: 5600, isBold: true },
+            { text: "حالا اگه موافقی،\nاز یه قدم کوچیک شروع کنیم.", duration: 4500, isBold: false }
         ];
 
         let currentIndex = -1;
@@ -399,7 +398,7 @@
                     }
                 }, current.duration);
 
-            }, manual ? 250 : 550);
+            }, manual ? 300 : 750);
         }
 
         function showFinalScreen() {
@@ -409,8 +408,13 @@
 
             setTimeout(() => {
                 storyContainer.style.display = "none";
-                finalContainer.classList.add("show");
-            }, 600);
+                finalContainer.style.display = "block";
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        finalContainer.classList.add("show");
+                    });
+                });
+            }, 800);
         }
 
         window.addEventListener("load", () => {
