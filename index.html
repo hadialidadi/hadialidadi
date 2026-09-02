@@ -4,726 +4,384 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هادی علیدادی | دیزاینر</title>
-    <link href="https://rozup.ir/download/4225654/swiper.min.css" rel="stylesheet">
-    <script src="https://rozup.ir/download/4225656/gsap.min.js"></script>
-    <script src="https://rozup.ir/download/4225655/scrolltrigger.min.js"></script>
-    <script src="https://rozup.ir/download/4225651/three.min.js"></script>
-    <script src="https://rozup.ir/download/4225652/tailwind.min.js"></script>
-    <script src="https://rozup.ir/download/4225653/swiper.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="https://rozup.ir/download/4225779/favicon.gif" type="image/gif">
     <style>
-:root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #050505;
-  --bg-gradient-start: #111111;
-  --bg-gradient-end: #050505;
-  --text-primary: #e0e0e0;
-  --text-secondary: #a0a0a0;
-  --text-muted: #6b7280;
-  --glass-bg: rgba(255, 255, 255, 0.02);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-hover-bg: rgba(255, 255, 255, 0.05);
-  --glass-hover-border: rgba(255, 255, 255, 0.1);
-  --modal-bg: rgba(20, 20, 20, 0.85);
-  --modal-border: rgba(255, 255, 255, 0.1);
-  --text-gradient-start: #ffffff;
-  --text-gradient-end: #888888;
-  --loader-ring-base: rgba(255, 255, 255, 0.1);
-  --loader-ring-top: #ffffff;
-  --scrollbar-track: #0a0a0a;
-  --scrollbar-thumb: #222;
-  --logo-filter: brightness(0) invert(1);
-}
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-ExtraLight.woff2') format('woff2');
+            font-weight: 200;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Estedad';
+            src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Black.woff2') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+        }
 
-body.light-mode {
-  --bg-primary: #f5f5f5;
-  --bg-secondary: #ffffff;
-  --bg-gradient-start: #ffffff;
-  --bg-gradient-end: #e0e0e0;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #4b5563;
-  --glass-bg: rgba(255, 255, 255, 0.4);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-hover-bg: rgba(255, 255, 255, 0.7);
-  --glass-hover-border: rgba(0, 0, 0, 0.1);
-  --modal-bg: rgba(245, 245, 245, 0.9);
-  --modal-border: rgba(0, 0, 0, 0.1);
-  --text-gradient-start: #000000;
-  --text-gradient-end: #555555;
-  --loader-ring-base: rgba(0, 0, 0, 0.1);
-  --loader-ring-top: #000000;
-  --scrollbar-track: #e0e0e0;
-  --scrollbar-thumb: #b0b0b0;
-  --logo-filter: none;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Estedad', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-html {
-  scroll-behavior: auto;
-}
+        body {
+            background-color: #040405;
+            color: #ffffff;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-@font-face {
-    font-family: 'Estedad';
-    src: url('https://rozup.ir/download/4225790/Estedad-VF.ttf') format('truetype');
-    font-display: swap;
-}
-        
-body {
-  font-family: 'Estedad', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  overflow: hidden;
-  margin: 0;
-  transition: background-color 0.5s, color 0.5s;
-}
+        .ambient-background {
+            position: absolute;
+            inset: -50px;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
 
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-secondary);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            animation: moveBlobs 12s infinite alternate ease-in-out;
+        }
 
-.loader-logo {
-  width: 80px;
-  margin-bottom: 20px;
-  filter: var(--logo-filter);
-  animation: pulse 2s infinite ease-in-out;
-}
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: #2a2c30;
+            top: 5%;
+            left: 10%;
+            animation-duration: 10s;
+        }
 
-.loader-ring {
-  width: 50px;
-  height: 50px;
-  border: 2px solid var(--loader-ring-base);
-  border-top: 2px solid var(--loader-ring-top);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: #18191c;
+            bottom: -5%;
+            right: 10%;
+            animation-duration: 14s;
+            animation-delay: -3s;
+        }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+        .blob-3 {
+            width: 420px;
+            height: 420px;
+            background: #35383d;
+            top: 45%;
+            left: 35%;
+            animation-duration: 9s;
+            animation-delay: -5s;
+        }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.5; transform: scale(0.95); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
+        @keyframes moveBlobs {
+            0% {
+                transform: translate(0px, 0px) scale(0.95) rotate(0deg);
+            }
+            50% {
+                transform: translate(90px, -60px) scale(1.2) rotate(60deg);
+            }
+            100% {
+                transform: translate(-70px, 80px) scale(1.05) rotate(-45deg);
+            }
+        }
 
-#canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-}
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(4,4,5,0.75) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
 
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 92%;
+            max-width: 680px;
+            text-align: center;
+            padding: 20px;
+        }
 
-.glass-card:hover {
-  background: var(--glass-hover-bg);
-  transform: translateY(-20px);
-  border-color: var(--glass-hover-border);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
+        .story-container {
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
 
-.glass-card.no-lift:hover {
-  transform: translateY(0);
-  box-shadow: none;
-  background-color: var(--glass-hover-bg);
-  border-color: var(--glass-hover-border);
-}
+        .message-box {
+            font-size: 2.15rem;
+            font-weight: 300;
+            line-height: 2;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(10px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: pre-line;
+        }
 
-.glass-card.no-hover:hover {
-  background: var(--glass-bg);
-  transform: none;
-  border-color: var(--glass-border);
-  box-shadow: none;
-}
+        .message-box.active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
 
-.text-gradient {
-  background: linear-gradient(90deg, var(--text-gradient-start), var(--text-gradient-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        .message-box.bold-special {
+            font-weight: 800;
+            font-size: 2.25rem;
+            letter-spacing: -0.8px;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+        }
 
-.nav-link {
-  position: relative;
-  transition: color 0.3s;
-}
+        .final-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(10px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(18, 19, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 45px 30px;
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--text-primary);
-  transition: width 0.3s;
-}
+        .final-container.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
 
-.nav-link:hover::after {
-  width: 100%;
-}
+        .brand-logo {
+            display: block;
+            margin: 0 auto 24px auto;
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.95;
+            transition: transform 0.3s ease;
+        }
 
-.white-logo {
-  filter: var(--logo-filter);
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
+        .brand-logo:hover {
+            transform: scale(1.05);
+        }
 
-.img-container {
-  position: relative;
-  display: inline-block;
-}
+        .social-text {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #d1d1d6;
+            margin-bottom: 28px;
+            line-height: 1.8;
+            letter-spacing: -0.3px;
+        }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
 
-::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c5c5cb;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 10px;
-}
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
 
-.section-enter {
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(10px);
-}
+        .social-link:hover {
+            color: #000000;
+            background: #ffffff;
+            border-color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.18);
+        }
 
-#order-modal,
-#image-lightbox,
-#portfolio-modal {
-  display: none;
-  opacity: 0;
-}
-
-.modal-glass {
-  background: var(--modal-bg);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1px solid var(--modal-border);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.modal-scroll-content::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-}
-
-.modal-scroll-content::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.swiper-pagination-bullet {
-  background: rgba(120, 120, 120, 0.4);
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--text-primary);
-  width: 24px;
-  border-radius: 4px;
-}
-
-.mySwiper {
-  padding-top: 40px !important;
-  overflow: visible !important;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-.swiper-wrapper {
-  overflow: visible !important;
-  transition-timing-function: linear !important;
-}
-
-.coming-soon-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 6px 16px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  z-index: 10;
-}
-
-body.light-mode .coming-soon-badge {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--text-primary);
-}
-
-.project-img-wrapper {
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 12px;
-  height: 256px;
-  position: relative;
-}
-
-.project-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.project-img-wrapper:hover img {
-  transform: scale(1.1);
-}
-
-.zoom-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.project-img-wrapper:hover .zoom-overlay {
-  opacity: 1;
-}
-
-#theme-toggle .fa-sun,
-#theme-toggle .fa-moon {
-  position: absolute;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-}
-
-#theme-toggle .fa-sun {
-  opacity: 0;
-  transform: rotate(-90deg);
-}
-
-#theme-toggle .fa-moon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-body.light-mode #theme-toggle .fa-sun {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-body.light-mode #theme-toggle .fa-moon {
-  opacity: 0;
-  transform: rotate(90deg);
-}
-
-body.light-mode .nav-order-btn,
-body.light-mode .modal-main-btn,
-body.light-mode .modal-close-btn {
-  background-color: #111827;
-  color: #ffffff;
-}
-
-body.light-mode .nav-order-btn:hover,
-body.light-mode .modal-main-btn:hover {
-  background-color: #374151;
-}
-
-body.light-mode .social-icon-btn {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #374151;
-}
-
-body.light-mode .social-icon-btn:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-#theme-transition-overlay {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 99999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.contact-input {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 1rem;
-  width: 100%;
-  color: var(--text-primary);
-  outline: none;
-  transition: all 0.3s;
-}
-
-.contact-input:focus {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-}
-
-#contact-submit-btn {
-  background-color: #ffffff;
-  color: #0a0a0a;
-  transition: all 0.3s;
-}
-
-#contact-submit-btn:hover {
-  background-color: #e0e0e0;
-}
-
-body.light-mode .contact-input {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: var(--text-primary);
-}
-
-body.light-mode .contact-input::placeholder {
-  color: var(--text-muted);
-}
-
-body.light-mode .contact-input:focus {
-  background: rgba(0, 0, 0, 0.06);
-  border-color: var(--text-primary);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode #contact-form label {
-  color: var(--text-secondary);
-}
-
-body.light-mode #contact-submit-btn {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode #contact-submit-btn:hover {
-  background-color: var(--text-secondary);
-}
+        @media (max-width: 580px) {
+            .message-box {
+                font-size: 1.6rem;
+                line-height: 1.8;
+            }
+            .message-box.bold-special {
+                font-size: 1.7rem;
+            }
+            .social-text {
+                font-size: 1.02rem;
+            }
+            .final-container {
+                padding: 35px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="preloader">
-        <img src="https://rozup.ir/download/4225780/TypeEn2ص2سشglish (1).png" alt="لوگو لودینگ" class="loader-logo">
-        <div class="loader-ring"></div>
+
+    <div class="ambient-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
-    <div id="image-lightbox" class="fixed inset-0 z-[150] flex items-center justify-center bg-black/95 p-4" onclick="closeLightbox()">
-        <button class="absolute top-8 right-8 text-white text-3xl hover:scale-110 transition"><i class="fas fa-times"></i></button>
-        <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-500">
-    </div>
-    <div id="canvas-container"></div>
-    <div id="order-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
-        <div class="modal-glass relative w-full max-w-lg p-10 rounded-[32px] text-center transform scale-90">
-            <button onclick="closeModal('order-modal')" class="modal-close-btn absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-3xl font-bold mb-4 text-gradient">ثبت سفارش پروژه</h2>
-            <p class="leading-relaxed mb-8" style="color: var(--text-secondary);">خوشحالم که قصد دارید ایده خود را با من به اشتراک بگذارید. برای شروع همکاری و دریافت مشاوره رایگان، می‌توانید از طریق شبکه‌های اجتماعی یا ایمیل با من در ارتباط باشید.</p>
-            <div class="space-y-4">
-                <a href="mailto:info@hadialidadi.ir" class="modal-main-btn block w-full py-4 rounded-2xl bg-white text-black font-bold hover:bg-gray-200 transition">ارسال ایمیل مستقیم</a>
-                <div class="flex justify-center gap-4 text-xl">
-                    <a href="https://t.me/MmdHadi_Alidadi" class="social-icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://wa.me/+989221861411" class="social-icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
+    <div class="noise-overlay"></div>
+
+    <div class="main-wrapper">
+        <div class="story-container" id="storyContainer" onclick="nextMessage(true)">
+            <div class="message-box" id="messageBox"></div>
         </div>
-    </div>
-    <div id="portfolio-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
-        <div class="modal-glass relative w-full max-w-4xl p-10 rounded-[32px] text-center transform scale-90 flex flex-col" style="height: 90vh;">
-            <button onclick="closeModal('portfolio-modal')" class="modal-close-btn absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-10">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-3xl font-bold mb-8 text-gradient flex-shrink-0">نمونه کارهای بیشتر</h2>
-            <div class="overflow-y-auto pr-4 -mr-4 flex-grow modal-scroll-content">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225787/پوستر فن بیان 11111.jpg')"><img src="https://rozup.ir/download/4225787/پوستر فن بیان 11111.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره فن بیان"</h3></div>
-                    <div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225784/2.jpg')"><img src="https://rozup.ir/download/4225784/2.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره اکسل"</h3></div>
-                    <div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225786/پوستر کارگاه دوم بیو1234312.jpg')"><img src="https://rozup.ir/download/4225786/پوستر کارگاه دوم بیو1234312.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره زیرپوست اینترنت"</h3></div>
-                    <div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225785/پوستر گرامیداشت ایران شناسی.jpg')"><img src="https://rozup.ir/download/4225785/پوستر گرامیداشت ایران شناسی.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">گرامیداشت موسس دانشکده ایرانشانسی</h3></div>
-                </div>
+
+        <div class="final-container" id="finalContainer">
+            <img src="https://rozup.ir/download/4225780/TypeEn2%D8%B52%D8%B3%D8%B4glish%20(1).png" alt="Logo" class="brand-logo">
+
+            <p class="social-text">اگه خواستی این مسیر رو ادامه بدیم، از اینجاها هم در ارتباط باش:</p>
+            
+            <div class="social-icons">
+                <a href="#" class="social-link" title="تلگرام">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="اینستاگرام">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="ایکس">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="لینکدین">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
             </div>
         </div>
     </div>
-    <nav class="fixed top-0 w-full z-50 px-8 py-4 flex justify-between items-center backdrop-blur-md border-b" style="border-color: var(--glass-border);">
-        <div class="flex items-center gap-4">
-            <a href="#home" class="img-container logo-static">
-                <div style="position: absolute; top: -4px; left: 5px; background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: var(--text-primary); font-size: 8px; font-weight: bold; padding: 2px 2px 1px 2px; border-radius: 6px; user-select: none; border: 1px solid var(--glass-border);">v2</div>
-                <img src="https://rozup.ir/download/4225780/TypeEn2ص2سشglish (1).png" alt="لوگو" class="h-10 white-logo" draggable="false">
-            </a>
-            <button id="theme-toggle" class="relative text-xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors" style="color: var(--text-primary);">
-                <i class="fas fa-sun"></i>
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-        <div class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium">
-            <a href="#home" class="nav-link">خانه</a>
-            <a href="#about" class="nav-link">درباره من</a>
-            <a href="#projects" class="nav-link">نمونه کارها</a>
-            <a href="#contact" class="nav-link">تماس</a>
-        </div>
-        <button onclick="openModal('order-modal')" class="nav-order-btn bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition">سفارش پروژه</button>
-    </nav>
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 text-center">
-        <div class="img-container hero-title-img mb-8 max-w-[90vw] md:max-w-4xl">
-            <img src="https://s2.uupload.ir/files/1671966595119_2cnw.png" alt="خلق ایده در کالبد تصویر" class="w-full h-auto white-logo" draggable="false">
-        </div>
-        <p class="text-lg md:text-xl max-w-2xl mb-10" style="color: var(--text-muted);">طراح گرافیک و هنرمند دیجیتال؛ متخصص در برندینگ، هویت بصری و طراحی رابط کاربری با رویکردی مینیمال و سه‌بعدی.</p>
-        <div class="flex space-x-4 space-x-reverse">
-            <button onclick="smoothScrollTo('#projects')" class="glass-card no-lift px-8 py-4 flex items-center gap-2 group">
-                <span>مشاهده نمونه کارها</span>
-                <i class="fas fa-chevron-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-            </button>
-        </div>
-    </section>
-    <section id="about" class="py-24 px-8 max-w-6xl mx-auto section-enter">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="glass-card no-lift p-6 aspect-square flex items-center justify-center relative overflow-hidden">
-                <img src="https://rozup.ir/download/4225781/Generated-Image-August-30-2025-8_50PM (1).jpeg" alt="درباره من" class="max-w-[85%] max-h-[85%] object-contain opacity-90 rounded-2xl shadow-2xl" draggable="false">
-                <div class="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none"></div>
-            </div>
-            <div>
-                <h2 class="text-3xl font-bold mb-6">هنر فراتر از یک تصویر است</h2>
-                <p class="leading-relaxed mb-6 text-justify" style="color: var(--text-muted);">به عنوان یک طراح گرافیک، تمرکز من بر تبدیل مفاهیم پیچیده به ساختارهای بصری ساده و قابل فهم است. من معتقدم هر برند داستانی برای گفتن دارد و وظیفه من، تصویرسازی این داستان به گونه‌ای است که در ذهن مخاطب ماندگار شود.</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-6 rounded-2xl border bg-white/5" style="border-color: var(--glass-border); background-color: var(--glass-bg);">
-                        <span class="block text-3xl font-bold">۱۰۰+</span><span class="text-xs uppercase tracking-widest" style="color: var(--text-muted);">لوگو و هویت بصری</span>
-                    </div>
-                    <div class="p-6 rounded-2xl border bg-white/5" style="border-color: var(--glass-border); background-color: var(--glass-bg);">
-                        <span class="block text-3xl font-bold">۹۹٪</span><span class="text-xs uppercase tracking-widest" style="color: var(--text-muted);">رضایت مشتریان</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="py-24 px-8 max-w-7xl mx-auto section-enter overflow-hidden">
-        <h2 class="text-4xl font-bold mb-16 text-center">پروژه‌های برگزیده</h2>
-        <div class="swiper mySwiper pb-12">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide px-2"><div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225787/پوستر فن بیان 11111.jpg')"><img src="https://rozup.ir/download/4225787/پوستر فن بیان 11111.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره فن بیان"</h3></div></div>
-                <div class="swiper-slide px-2"><div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225784/2.jpg')"><img src="https://rozup.ir/download/4225784/2.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره اکسل"</h3></div></div>
-                <div class="swiper-slide px-2"><div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225786/پوستر کارگاه دوم بیو1234312.jpg')"><img src="https://rozup.ir/download/4225786/پوستر کارگاه دوم بیو1234312.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">طراحی پوستر "دوره زیرپوست اینترنت"</h3></div></div>
-                <div class="swiper-slide px-2"><div class="glass-card no-lift p-4 group h-full"><div class="project-img-wrapper mb-6" onclick="openLightbox('https://rozup.ir/download/4225785/پوستر گرامیداشت ایران شناسی.jpg')"><img src="https://rozup.ir/download/4225785/پوستر گرامیداشت ایران شناسی.jpg" alt="پروژه"><div class="zoom-overlay text-white"><i class="fas fa-search-plus text-2xl"></i></div></div><h3 class="text-xl font-bold mb-2">گرامیداشت موسس دانشکده ایرانشانسی</h3></div></div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-        <div class="text-center mt-16">
-            <button onclick="openModal('portfolio-modal')" class="glass-card no-lift px-8 py-4 flex items-center gap-2 group mx-auto">
-                <span>نمونه کارهای بیشتر</span>
-                <i class="fas fa-chevron-left text-xs group-hover:-translate-x-1 transition-transform"></i>
-            </button>
-        </div>
-        <div class="mt-20 grid grid-cols-1 gap-12 max-w-4xl mx-auto">
-            <div class="glass-card no-lift overflow-hidden group relative cursor-pointer section-enter"><div class="coming-soon-badge">بزودی...</div><img src="https://rozup.ir/download/4225783/بنر-سایت-مینی-دوره-scaled.png" alt="مینی دوره" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"></div>
-            <div class="glass-card no-lift overflow-hidden group relative cursor-pointer section-enter"><div class="coming-soon-badge">بزودی...</div><img src="https://rozup.ir/download/4225782/بنر-سایت-خودم-1-دوره-فتوشاپ.png" alt="دوره فتوشاپ" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"></div>
-        </div>
-    </section>
-    <section id="contact" class="py-24 px-8 max-w-4xl mx-auto section-enter">
-        <h2 class="text-4xl font-bold mb-12 text-center text-gradient">ارتباط با من</h2>
-        <div class="glass-card no-hover p-8 md:p-12">
-            <form id="contact-form" action="https://formspree.io/f/xpqjznop" method="POST" class="space-y-6 text-right">
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400 mr-2">نام و نام خانوادگی</label>
-                    <input type="text" name="name" placeholder="مثلاً: هادی علیدادی" required class="contact-input focus:outline-none transition">
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400 mr-2">آدرس ایمیل</label>
-                    <input type="email" name="email" placeholder="name@example.com" required class="contact-input focus:outline-none transition text-left" style="direction: ltr;">
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400 mr-2">موضوع پیام</label>
-                    <select name="subject" required class="contact-input focus:outline-none transition appearance-none">
-                        <option value="General" selected>گفتگوی دوستانه / عمومی</option>
-                        <option value="Feedback">ارسال انتقاد یا پیشنهاد</option>
-                        <option value="Question">سوال فنی</option>
-                        <option value="Other">سایر موارد</option>
-                    </select>
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400 mr-2">متن پیام شما</label>
-                    <textarea name="message" placeholder="هر چه می‌خواهد دل تنگت بگو..." rows="5" required class="contact-input focus:outline-none transition"></textarea>
-                </div>
-                <button id="contact-submit-btn" type="submit" class="block w-full py-4 rounded-2xl font-bold transform hover:scale-[1.02]">ارسال پیام</button>
-            </form>
-        </div>
-    </section>
-    <footer class="py-16 border-t text-center mt-20" style="border-color: var(--glass-border);">
-        <h2 class="text-2xl font-bold mb-8">بیایید با هم بسازیم</h2>
-        <div class="flex justify-center space-x-8 space-x-reverse mb-10 text-3xl">
-            <a href="https://www.instagram.com/hadialidadipv" class="transition" style="color: var(--text-muted);"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.t.me/Mmdhadi_Alidadi" class="transition" style="color: var(--text-muted);"><i class="fab fa-telegram"></i></a>
-        </div>
-        <p class="text-sm" style="color: var(--text-muted);">© ۲۰۲۶ تمامی حقوق محفوظ است</p>
-    </footer>
-    <div id="theme-transition-overlay"></div>
 
     <script>
-        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
-        let scene, camera, renderer, particles;
-        function init3D() {
-            if (typeof THREE === 'undefined') return;
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            document.getElementById('canvas-container').appendChild(renderer.domElement);
-            const particlesGeometry = new THREE.BufferGeometry();
-            const count = 3500;
-            const positions = new Float32Array(count * 3);
-            for(let i = 0; i < count * 3; i++) positions[i] = (Math.random() - 0.5) * 15;
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            const isLight = document.body.classList.contains('light-mode');
-            const particlesMaterial = new THREE.PointsMaterial({ size: 0.015, sizeAttenuation: true, color: isLight ? 0x333333 : 0x888888, transparent: true, opacity: 0.4 });
-            particles = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particles);
-            animate();
-        }
-        function animate() {
-            if (!renderer || !scene || !camera) return;
-            requestAnimationFrame(animate);
-            particles.rotation.y += 0.0005;
-            particles.rotation.x += 0.0002;
-            renderer.render(scene, camera);
-        }
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-            const content = modal.querySelector('.modal-glass');
-            document.body.style.overflow = 'hidden';
-            modal.style.display = 'flex';
-            gsap.to(modal, { opacity: 1, duration: 0.4 });
-            gsap.fromTo(content, { scale: 0.8, y: 20, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" });
-        }
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-            const content = modal.querySelector('.modal-glass');
-            gsap.to(content, { scale: 0.8, y: 20, opacity: 0, duration: 0.4, ease: "power2.in" });
-            gsap.to(modal, { opacity: 0, duration: 0.4, onComplete: () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; } });
-        }
-        function openLightbox(src) {
-            const lightbox = document.getElementById('image-lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.style.display = 'flex';
-            gsap.to(lightbox, { opacity: 1, duration: 0.5 });
-            gsap.fromTo(img, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" });
-            document.body.style.overflow = 'hidden';
-        }
-        function closeLightbox() {
-            const lightbox = document.getElementById('image-lightbox');
-            const img = document.getElementById('lightbox-img');
-            gsap.to(img, { scale: 0.9, opacity: 0, duration: 0.3 });
-            gsap.to(lightbox, { opacity: 0, duration: 0.4, onComplete: () => { lightbox.style.display = 'none'; document.body.style.overflow = 'auto'; }});
-        }
-        window.onclick = function(event) {
-            if (event.target.id === 'order-modal') closeModal('order-modal');
-            if (event.target.id === 'portfolio-modal') closeModal('portfolio-modal');
-        }
-        function smoothScrollTo(targetSelector) {
-            const targetElement = document.querySelector(targetSelector);
-            if (!targetElement) return;
-            const topPos = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            let scrollProxy = { y: window.pageYOffset };
-            gsap.to(scrollProxy, { y: topPos, duration: 1.5, ease: 'power3.inOut', onUpdate: () => { window.scrollTo(0, scrollProxy.y); } });
-        }
-        function initAnimations() {
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.utils.toArray(".section-enter").forEach(section => {
-                gsap.to(section, { scrollTrigger: { trigger: section, start: "top 90%" }, opacity: 1, y: 0, filter: "blur(0px)", duration: 1.8, ease: "expo.out" });
-            });
-            new Swiper(".mySwiper", {
-                slidesPerView: 1, spaceBetween: 30, pagination: { el: ".swiper-pagination", clickable: true },
-                breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
-                grabCursor: true, watchSlidesProgress: true, loop: true, speed: 6000,
-                autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false },
-            });
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) { e.preventDefault(); smoothScrollTo(this.getAttribute('href')); });
-            });
-        }
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            const overlay = document.getElementById('theme-transition-overlay');
-            if (!overlay || overlay.classList.contains('active')) return;
-            overlay.classList.add('active');
-            const isSwitchingToLight = !document.body.classList.contains('light-mode');
-            overlay.style.backgroundColor = isSwitchingToLight ? '#f5f5f5' : '#0a0a0a';
-            overlay.style.opacity = 1; overlay.style.pointerEvents = 'auto';
+        const messages = [
+            { text: "سلام. بالاخره اومدی.", duration: 3800, isBold: false },
+            { text: "راستش من تو رو خوب می‌شناسم.\nچون خودِ تو هستم؛ فقط از چند قدم جلوتر.", duration: 4800, isBold: false },
+            { text: "الان شاید حس کنی یه چیزی کمه،\nیا یه جایی از مسیر رو اشتباه رفتی.", duration: 4800, isBold: false },
+            { text: "ولی اومدم که بگم هنوز دیر نشده.\nقرار نیست معجزه کنم یا شعار بدم.", duration: 4800, isBold: false },
+            { text: "فقط می‌خوام کنارت باشم\nتا کم‌کم کیفیتت رو ببری بالا.", duration: 4500, isBold: false },
+            { text: "عیارت رو بالاتر ببری،\nبدون اینکه خودت رو گم کنی.", duration: 4500, isBold: false },
+            { text: "من در کنار توام که بتونی کیفیتتو بالاتر ببری و عیارتو بالاتر ببری.", duration: 5200, isBold: true },
+            { text: "حالا اگه موافقی،\nاز یه قدم کوچیک شروع کنیم.", duration: 4200, isBold: false }
+        ];
+
+        let currentIndex = -1;
+        let messageTimer = null;
+        const msgBox = document.getElementById("messageBox");
+        const storyContainer = document.getElementById("storyContainer");
+        const finalContainer = document.getElementById("finalContainer");
+
+        function nextMessage(manual = false) {
+            clearTimeout(messageTimer);
+
+            if (currentIndex >= messages.length - 1) {
+                showFinalScreen();
+                return;
+            }
+
+            msgBox.classList.remove("active");
+
             setTimeout(() => {
-                document.body.classList.toggle('light-mode');
-                if (particles) { particles.material.color.set(new THREE.Color(isSwitchingToLight ? 0x333333 : 0x888888)); }
-                overlay.style.opacity = 0; overlay.style.pointerEvents = 'none';
-                setTimeout(() => { overlay.classList.remove('active'); }, 500);
-            }, 500);
-        });
-        window.onload = function() {
-            window.scrollTo(0, 0);
-            const preloader = document.getElementById('preloader');
-            const tl = gsap.timeline();
-            tl.to(".loader-ring", { opacity: 0, duration: 0.3 })
-              .to(".loader-logo", { scale: 1.2, opacity: 0, duration: 0.5, ease: "power2.in" })
-              .to(preloader, { yPercent: -100, duration: 1, ease: "expo.inOut" })
-              .from(".hero-title-img img", { duration: 1.5, y: 100, opacity: 0, clearProps: "all", ease: "power4.out" }, "-=0.5")
-              .set("body", { overflow: "auto" });
-            init3D();
-            initAnimations();
-        };
-        window.addEventListener('mousemove', (e) => {
-            if (!particles || typeof gsap === 'undefined') return;
-            const mouseX = (e.clientX / window.innerWidth) - 0.5;
-            const mouseY = (e.clientY / window.innerHeight) - 0.5;
-            gsap.to(particles.rotation, { y: mouseX * 0.3, x: -mouseY * 0.3, duration: 2, ease: "power2.out" });
-        });
-        window.addEventListener('resize', () => {
-            if (camera) { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); }
-            if (renderer) { renderer.setSize(window.innerWidth, window.innerHeight); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); }
-        });
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target; const btn = form.querySelector('button'); const originalText = btn.innerText;
-            btn.innerText = 'در حال فرستادن...'; btn.disabled = true;
-            try {
-                const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-                if (response.ok) { btn.innerText = 'پیام با موفقیت فرستاده شد ✓'; btn.style.backgroundColor = '#4ade80'; btn.style.color = '#fff'; form.reset(); }
-                else { throw new Error(); }
-            } catch (error) { btn.innerText = 'خطایی رخ داد! دوباره تلاش کنید'; btn.style.backgroundColor = '#ef4444'; btn.style.color = '#fff'; }
-            setTimeout(() => { btn.innerText = originalText; btn.style.backgroundColor = ''; btn.style.color = ''; btn.disabled = false; }, 4000);
+                currentIndex++;
+                const current = messages[currentIndex];
+                msgBox.innerText = current.text;
+
+                if (current.isBold) {
+                    msgBox.classList.add("bold-special");
+                } else {
+                    msgBox.classList.remove("bold-special");
+                }
+
+                msgBox.classList.add("active");
+
+                messageTimer = setTimeout(() => {
+                    if (currentIndex < messages.length - 1) {
+                        nextMessage();
+                    } else {
+                        showFinalScreen();
+                    }
+                }, current.duration);
+
+            }, manual ? 250 : 550);
+        }
+
+        function showFinalScreen() {
+            clearTimeout(messageTimer);
+
+            msgBox.classList.remove("active");
+
+            setTimeout(() => {
+                storyContainer.style.display = "none";
+                finalContainer.classList.add("show");
+            }, 600);
+        }
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                nextMessage();
+            }, 1000);
         });
     </script>
 </body>
