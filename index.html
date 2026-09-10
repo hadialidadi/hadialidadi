@@ -16,37 +16,51 @@
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-ExtraLight.woff2') format('woff2');
-            font-weight: 200; font-style: normal; font-display: swap;
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Light.woff2') format('woff2');
-            font-weight: 300; font-style: normal; font-display: swap;
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Regular.woff2') format('woff2');
-            font-weight: 400; font-style: normal; font-display: swap;
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Medium.woff2') format('woff2');
-            font-weight: 500; font-style: normal; font-display: swap;
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Bold.woff2') format('woff2');
-            font-weight: 700; font-style: normal; font-display: swap;
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-ExtraBold.woff2') format('woff2');
-            font-weight: 800; font-style: normal; font-display: swap;
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Estedad';
             src: url('https://loxup.ir/m/mysite_lxb.ir/cats_image/Estedad-FD-Black.woff2') format('woff2');
-            font-weight: 900; font-style: normal; font-display: swap;
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
         }
 
         :root {
@@ -132,78 +146,144 @@
             pointer-events: none;
         }
 
-        .blob {
+        .mesh-gradient {
             position: absolute;
-            border-radius: 50%;
-            filter: blur(95px);
-            opacity: 0.4;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 18% 22%, rgba(48, 58, 88, 0.55), transparent 65%),
+                radial-gradient(ellipse 65% 65% at 82% 78%, rgba(58, 42, 78, 0.50), transparent 65%),
+                radial-gradient(ellipse 55% 45% at 50% 50%, rgba(28, 32, 42, 0.45), transparent 70%),
+                radial-gradient(ellipse 40% 35% at 25% 85%, rgba(78, 62, 42, 0.28), transparent 70%),
+                radial-gradient(ellipse 35% 30% at 75% 15%, rgba(40, 55, 80, 0.35), transparent 70%);
+            animation: meshShift 30s ease-in-out infinite alternate;
             will-change: transform;
-            animation: moveBlobs 16s infinite alternate ease-in-out;
         }
 
-        .blob-1 {
-            width: min(500px, 80vw);
-            height: min(500px, 80vw);
-            background: #2a2c30;
-            top: 5%; left: 10%;
-            animation-duration: 14s;
-        }
-
-        .blob-2 {
-            width: min(600px, 90vw);
-            height: min(600px, 90vw);
-            background: #18191c;
-            bottom: -5%; right: 10%;
-            animation-duration: 18s;
-            animation-delay: -3s;
-        }
-
-        .blob-3 {
-            width: min(420px, 70vw);
-            height: min(420px, 70vw);
-            background: #35383d;
-            top: 45%; left: 35%;
-            animation-duration: 13s;
-            animation-delay: -5s;
-        }
-
-        @keyframes moveBlobs {
-            0%   { transform: translate3d(0, 0, 0) scale(0.95) rotate(0deg); }
-            50%  { transform: translate3d(60px, -40px, 0) scale(1.15) rotate(50deg); }
-            100% { transform: translate3d(-50px, 60px, 0) scale(1.02) rotate(-40deg); }
+        @keyframes meshShift {
+            0%   { transform: scale(1.05) rotate(-3deg) translate3d(0, 0, 0); }
+            100% { transform: scale(1.20) rotate(4deg) translate3d(-2%, 2%, 0); }
         }
 
         .aura {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             width: 150vmax;
             height: 150vmax;
             transform: translate(-50%, -50%);
             background: conic-gradient(
                 from 0deg,
                 transparent 0deg,
-                rgba(255, 255, 255, 0.05) 45deg,
+                rgba(255, 255, 255, 0.055) 45deg,
                 transparent 110deg,
                 transparent 190deg,
-                rgba(255, 255, 255, 0.035) 240deg,
+                rgba(255, 255, 255, 0.04) 240deg,
                 transparent 310deg
             );
             filter: blur(55px);
             animation: auraSpin 80s linear infinite;
+            will-change: transform;
         }
 
         @keyframes auraSpin {
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.42;
+            will-change: transform;
+            animation: moveBlobs 16s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            width: min(520px, 85vw);
+            height: min(520px, 85vw);
+            background: radial-gradient(circle at 35% 35%, rgba(72, 84, 112, 0.95) 0%, rgba(30, 35, 48, 0) 72%);
+            top: 2%;
+            left: 8%;
+            animation-duration: 14s;
+        }
+
+        .blob-2 {
+            width: min(620px, 92vw);
+            height: min(620px, 92vw);
+            background: radial-gradient(circle at 60% 40%, rgba(74, 56, 104, 0.90) 0%, rgba(25, 20, 40, 0) 72%);
+            bottom: -8%;
+            right: 6%;
+            animation-duration: 18s;
+            animation-delay: -3s;
+        }
+
+        .blob-3 {
+            width: min(440px, 72vw);
+            height: min(440px, 72vw);
+            background: radial-gradient(circle at 45% 55%, rgba(92, 98, 118, 0.88) 0%, rgba(40, 45, 58, 0) 72%);
+            top: 42%;
+            left: 32%;
+            animation-duration: 13s;
+            animation-delay: -5s;
+        }
+
+        .blob-4 {
+            width: min(380px, 65vw);
+            height: min(380px, 65vw);
+            background: radial-gradient(circle at 50% 50%, rgba(62, 50, 92, 0.82) 0%, rgba(30, 24, 48, 0) 72%);
+            top: 15%;
+            right: 12%;
+            animation-duration: 17s;
+            animation-delay: -7s;
+        }
+
+        .blob-5 {
+            width: min(460px, 75vw);
+            height: min(460px, 75vw);
+            background: radial-gradient(circle at 40% 60%, rgba(118, 98, 72, 0.55) 0%, rgba(50, 42, 32, 0) 72%);
+            bottom: 8%;
+            left: 5%;
+            animation-duration: 21s;
+            animation-delay: -10s;
+        }
+
+        @keyframes moveBlobs {
+            0%   { transform: translate3d(0, 0, 0) scale(0.95) rotate(0deg); }
+            50%  { transform: translate3d(70px, -50px, 0) scale(1.18) rotate(60deg); }
+            100% { transform: translate3d(-60px, 70px, 0) scale(1.02) rotate(-45deg); }
+        }
+
+        .light-beam {
+            position: absolute;
+            inset: -100%;
+            background: linear-gradient(
+                115deg,
+                transparent 38%,
+                rgba(255, 255, 255, 0.018) 46%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0.018) 54%,
+                transparent 62%
+            );
+            animation: beamSweep 22s ease-in-out infinite;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        @keyframes beamSweep {
+            0%   { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
+            50%  { transform: translate3d(25%, 25%, 0) rotate(0deg); }
+            100% { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
+        }
+
         .noise-overlay {
             position: absolute;
             inset: 0;
             background: radial-gradient(
-                ellipse 75% 65% at 50% 50%,
-                transparent 15%,
-                rgba(4, 4, 5, 0.55) 72%,
-                rgba(4, 4, 5, 0.94) 100%
+                ellipse 80% 70% at 50% 45%,
+                transparent 10%,
+                rgba(4, 4, 5, 0.42) 60%,
+                rgba(4, 4, 5, 0.88) 88%,
+                rgba(4, 4, 5, 0.98) 100%
             );
             z-index: 2;
             pointer-events: none;
@@ -213,7 +293,7 @@
             position: absolute;
             inset: -60%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
-            opacity: 0.05;
+            opacity: 0.055;
             z-index: 3;
             pointer-events: none;
             animation: grainShift 7s steps(5) infinite;
@@ -527,7 +607,7 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-            .grain, .aura { display: none; }
+            .grain, .aura, .light-beam, .mesh-gradient { display: none; }
         }
     </style>
 </head>
@@ -538,10 +618,14 @@
     </div>
 
     <div class="ambient-background">
+        <div class="mesh-gradient"></div>
         <div class="aura"></div>
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+        <div class="light-beam"></div>
     </div>
     <div class="noise-overlay"></div>
     <div class="grain"></div>
