@@ -136,10 +136,14 @@
             to { transform: rotate(360deg); }
         }
 
-        /* ===== BACKGROUND LAYER (جایگزین گرادیان و بلاب‌های قبلی) ===== */
+        /* ===== BACKGROUND ===== */
         .ambient-background {
-            position: absolute;
-            inset: -40px;
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            height: 100svh;
             overflow: hidden;
             z-index: 1;
             pointer-events: none;
@@ -154,7 +158,7 @@
         }
 
         .noise-overlay {
-            position: absolute;
+            position: fixed;
             inset: 0;
             background: radial-gradient(
                 ellipse 80% 70% at 50% 45%,
@@ -168,7 +172,7 @@
         }
 
         .grain {
-            position: absolute;
+            position: fixed;
             inset: -60%;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
             opacity: 0.055;
@@ -508,8 +512,7 @@
         <div class="loader-ring"></div>
     </div>
 
-    <!-- ===== BACKGROUND ===== -->
-    <div class="ambient-background">
+    <div class="ambient-background" id="bgWrap">
         <canvas id="fluid-bg"></canvas>
     </div>
     <div class="noise-overlay"></div>
@@ -559,14 +562,19 @@
             }
         });
 
-        /* ============ WebGL Fluid Background ============ */
+        /* ============ WebGL Fluid Background (Fullscreen) ============ */
         (function initFluid() {
             const canvas = document.getElementById('fluid-bg');
-            if (!canvas || typeof THREE === 'undefined') return;
+            const container = document.getElementById('bgWrap');
+            if (!canvas || !container || typeof THREE === 'undefined') return;
 
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+            const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true,
+                antialias: false,
+                powerPreference: 'high-performance'
+            });
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            renderer.setSize(window.innerWidth, window.innerHeight);
 
             const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
             const scene = new THREE.Scene();
@@ -626,29 +634,46 @@
 
             const uniforms = {
                 u_time: { value: 0.0 },
-                u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+                u_resolution: { value: new THREE.Vector2(1, 1) }
             };
 
             const material = new THREE.ShaderMaterial({
-                vertexShader,
-                fragmentShader,
-                uniforms
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+                uniforms: uniforms
             });
 
             scene.add(new THREE.Mesh(geometry, material));
 
+            /* ==== سایز دقیق از روی کانتینر ==== */
+            function resize() {
+                const w = container.clientWidth  || window.innerWidth;
+                const h = container.clientHeight || window.innerHeight;
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                renderer.setSize(w, h, false);   /* false → دست نزن به style، CSS کنترل می‌کنه */
+                uniforms.u_resolution.value.set(w, h);
+            }
+
+            resize();
+
+            if ('ResizeObserver' in window) {
+                new ResizeObserver(resize).observe(container);
+            } else {
+                window.addEventListener('resize', resize);
+            }
+
+            window.addEventListener('resize', resize);
+            window.addEventListener('orientationchange', () => setTimeout(resize, 200));
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', resize);
+            }
+
             const clock = new THREE.Clock();
-            function animate() {
+            (function animate() {
                 uniforms.u_time.value = clock.getElapsedTime();
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
-            });
+            })();
         })();
 
         /* ============ Story Logic ============ */
