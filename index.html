@@ -136,6 +136,7 @@
             to { transform: rotate(360deg); }
         }
 
+        /* ===== BACKGROUND LAYER (جایگزین گرادیان و بلاب‌های قبلی) ===== */
         .ambient-background {
             position: absolute;
             inset: -40px;
@@ -144,127 +145,12 @@
             pointer-events: none;
         }
 
-        .mesh-gradient {
+        #fluid-bg {
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(ellipse 70% 55% at 18% 22%, rgba(48, 58, 88, 0.55), transparent 65%),
-                radial-gradient(ellipse 65% 65% at 82% 78%, rgba(58, 42, 78, 0.50), transparent 65%),
-                radial-gradient(ellipse 55% 45% at 50% 50%, rgba(28, 32, 42, 0.45), transparent 70%),
-                radial-gradient(ellipse 40% 35% at 25% 85%, rgba(78, 62, 42, 0.28), transparent 70%),
-                radial-gradient(ellipse 35% 30% at 75% 15%, rgba(40, 55, 80, 0.35), transparent 70%);
-            animation: meshShift 30s ease-in-out infinite alternate;
-            will-change: transform;
-        }
-
-        @keyframes meshShift {
-            0%   { transform: scale(1.05) rotate(-3deg) translate3d(0, 0, 0); }
-            100% { transform: scale(1.20) rotate(4deg) translate3d(-2%, 2%, 0); }
-        }
-
-        .aura {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 150vmax;
-            height: 150vmax;
-            transform: translate(-50%, -50%);
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                rgba(255, 255, 255, 0.055) 45deg,
-                transparent 110deg,
-                transparent 190deg,
-                rgba(255, 255, 255, 0.04) 240deg,
-                transparent 310deg
-            );
-            filter: blur(55px);
-            animation: auraSpin 80s linear infinite;
-            will-change: transform;
-        }
-
-        @keyframes auraSpin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.42;
-            will-change: transform;
-            animation: moveBlobs 16s infinite alternate ease-in-out;
-        }
-
-        .blob-1 {
-            width: min(520px, 85vw);
-            height: min(520px, 85vw);
-            background: radial-gradient(circle at 35% 35%, rgba(72, 84, 112, 0.95) 0%, rgba(30, 35, 48, 0) 72%);
-            top: 2%; left: 8%;
-            animation-duration: 14s;
-        }
-
-        .blob-2 {
-            width: min(620px, 92vw);
-            height: min(620px, 92vw);
-            background: radial-gradient(circle at 60% 40%, rgba(74, 56, 104, 0.90) 0%, rgba(25, 20, 40, 0) 72%);
-            bottom: -8%; right: 6%;
-            animation-duration: 18s;
-            animation-delay: -3s;
-        }
-
-        .blob-3 {
-            width: min(440px, 72vw);
-            height: min(440px, 72vw);
-            background: radial-gradient(circle at 45% 55%, rgba(92, 98, 118, 0.88) 0%, rgba(40, 45, 58, 0) 72%);
-            top: 42%; left: 32%;
-            animation-duration: 13s;
-            animation-delay: -5s;
-        }
-
-        .blob-4 {
-            width: min(380px, 65vw);
-            height: min(380px, 65vw);
-            background: radial-gradient(circle at 50% 50%, rgba(62, 50, 92, 0.82) 0%, rgba(30, 24, 48, 0) 72%);
-            top: 15%; right: 12%;
-            animation-duration: 17s;
-            animation-delay: -7s;
-        }
-
-        .blob-5 {
-            width: min(460px, 75vw);
-            height: min(460px, 75vw);
-            background: radial-gradient(circle at 40% 60%, rgba(118, 98, 72, 0.55) 0%, rgba(50, 42, 32, 0) 72%);
-            bottom: 8%; left: 5%;
-            animation-duration: 21s;
-            animation-delay: -10s;
-        }
-
-        @keyframes moveBlobs {
-            0%   { transform: translate3d(0, 0, 0) scale(0.95) rotate(0deg); }
-            50%  { transform: translate3d(70px, -50px, 0) scale(1.18) rotate(60deg); }
-            100% { transform: translate3d(-60px, 70px, 0) scale(1.02) rotate(-45deg); }
-        }
-
-        .light-beam {
-            position: absolute;
-            inset: -100%;
-            background: linear-gradient(
-                115deg,
-                transparent 38%,
-                rgba(255, 255, 255, 0.018) 46%,
-                rgba(255, 255, 255, 0.05) 50%,
-                rgba(255, 255, 255, 0.018) 54%,
-                transparent 62%
-            );
-            animation: beamSweep 22s ease-in-out infinite;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        @keyframes beamSweep {
-            0%   { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
-            50%  { transform: translate3d(25%, 25%, 0) rotate(0deg); }
-            100% { transform: translate3d(-25%, -25%, 0) rotate(0deg); }
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         .noise-overlay {
@@ -612,7 +498,7 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-            .grain, .aura, .light-beam, .mesh-gradient { display: none; }
+            .grain { display: none; }
         }
     </style>
 </head>
@@ -622,15 +508,9 @@
         <div class="loader-ring"></div>
     </div>
 
+    <!-- ===== BACKGROUND ===== -->
     <div class="ambient-background">
-        <div class="mesh-gradient"></div>
-        <div class="aura"></div>
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-        <div class="blob blob-5"></div>
-        <div class="light-beam"></div>
+        <canvas id="fluid-bg"></canvas>
     </div>
     <div class="noise-overlay"></div>
     <div class="grain"></div>
@@ -662,6 +542,7 @@
         </div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('dragstart', e => e.preventDefault());
@@ -678,6 +559,99 @@
             }
         });
 
+        /* ============ WebGL Fluid Background ============ */
+        (function initFluid() {
+            const canvas = document.getElementById('fluid-bg');
+            if (!canvas || typeof THREE === 'undefined') return;
+
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+            const scene = new THREE.Scene();
+            const geometry = new THREE.PlaneGeometry(2, 2);
+
+            const vertexShader = `
+                void main() {
+                    gl_Position = vec4(position, 1.0);
+                }
+            `;
+
+            const fragmentShader = `
+                uniform float u_time;
+                uniform vec2 u_resolution;
+
+                vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+                float snoise(vec2 v) {
+                    const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+                    vec2 i  = floor(v + dot(v, C.yy));
+                    vec2 x0 = v -   i + dot(i, C.xx);
+                    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+                    vec4 x12 = x0.xyxy + C.xxzz;
+                    x12.xy -= i1;
+                    i = mod289(i);
+                    vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+                    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+                    m = m*m;
+                    m = m*m;
+                    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+                    vec3 h = abs(x) - 0.5;
+                    vec3 ox = floor(x + 0.5);
+                    vec3 a0 = x - ox;
+                    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+                    vec3 g;
+                    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+                    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+                    return 130.0 * dot(m, g);
+                }
+
+                void main() {
+                    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+                    uv.x *= u_resolution.x / u_resolution.y;
+
+                    vec3 baseColor = vec3(0.012, 0.012, 0.02);
+                    vec2 st = uv * 0.7;
+                    st += vec2(snoise(st + u_time * 0.05), snoise(st - u_time * 0.05)) * 0.3;
+
+                    float beam = smoothstep(0.1, 0.8, snoise(vec2(st.x + st.y * 1.5 - u_time * 0.15, u_time * 0.02)));
+                    vec3 glow = mix(vec3(0.15, 0.25, 0.85), vec3(0.4, 0.2, 0.9), snoise(uv * 1.5 + u_time * 0.1) * 0.5 + 0.5);
+
+                    gl_FragColor = vec4(baseColor + (glow * beam * 0.7), 1.0);
+                }
+            `;
+
+            const uniforms = {
+                u_time: { value: 0.0 },
+                u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+            };
+
+            const material = new THREE.ShaderMaterial({
+                vertexShader,
+                fragmentShader,
+                uniforms
+            });
+
+            scene.add(new THREE.Mesh(geometry, material));
+
+            const clock = new THREE.Clock();
+            function animate() {
+                uniforms.u_time.value = clock.getElapsedTime();
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+            });
+        })();
+
+        /* ============ Story Logic ============ */
         const messages = [
             { text: "سلام. بالاخره اومدی.", duration: 4200, isBold: false },
             { text: "راستش من تو رو خوب می‌شناسم.\nچون خودِ تو هستم؛ فقط از چند قدم جلوتر.", duration: 5400, isBold: false },
@@ -712,7 +686,6 @@
 
         function nextMessage(manual = false) {
             if (!started) return;
-
             clearTimeout(autoTimer);
             clearTimeout(swapTimer);
 
@@ -731,7 +704,6 @@
                 msgBox.classList.toggle("bold-special", !!current.isBold);
 
                 void msgBox.offsetWidth;
-
                 msgBox.classList.add("active");
 
                 autoTimer = setTimeout(() => {
@@ -747,10 +719,8 @@
 
         function showFinalScreen() {
             if (!started) return;
-
             clearTimeout(autoTimer);
             clearTimeout(swapTimer);
-
             if (finalContainer.classList.contains("show")) return;
 
             msgBox.classList.remove("active");
@@ -759,7 +729,6 @@
             setTimeout(() => {
                 storyContainer.style.display = "none";
                 finalContainer.style.display = "block";
-
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         finalContainer.classList.add("show");
@@ -775,31 +744,21 @@
 
         (function bootstrap() {
             const weights = ["200", "300", "400", "500", "700", "800", "900"];
-
             const fontLoads = (document.fonts && document.fonts.load)
-                ? Promise.all(
-                    weights.map(w =>
-                        document.fonts.load(`${w} 1em Estedad`).catch(() => null)
-                    )
-                )
+                ? Promise.all(weights.map(w => document.fonts.load(`${w} 1em Estedad`).catch(() => null)))
                 : Promise.resolve();
-
             const minShow = new Promise(r => setTimeout(r, 1500));
 
             Promise.all([fontLoads, minShow]).then(() => {
                 setTimeout(() => {
                     loader.classList.add("hidden");
                     startStory();
-
-                    setTimeout(() => {
-                        loader.style.display = "none";
-                    }, 1100);
+                    setTimeout(() => { loader.style.display = "none"; }, 1100);
                 }, 150);
             });
         })();
 
         storyContainer.addEventListener("click", () => nextMessage(true));
-
         storyContainer.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
